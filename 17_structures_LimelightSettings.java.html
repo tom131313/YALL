@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WinMerge File Compare Report</title>
+<style>
+<!--
+table { table-layout: fixed; margin: 0; border: 1px solid #a0a0a0; box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); }
+th { position: sticky; top: 0; }
+td,th { word-break: break-all; font-size: 11pt; padding: 0 3px; }
+tr { vertical-align: top; }
+.title { font-weight: bold; color: white; background-color: blue; vertical-align: top; text-align: center; padding: 4px 4px; background: linear-gradient(mediumblue, darkblue);}
+.sf3b2 {color: #000000; background-color: #ffffff; }
+.sf3b5 {color: #000000; background-color: #0078d7; }
+.sf3b14 {color: #000000; background-color: #ffa0a0; }
+.sf3b16 {color: #000000; background-color: #f1e2ad; }
+.sf3b18 {color: #000000; background-color: #ffaa82; }
+.sf3b19 {color: #000000; background-color: #c8816c; }
+.sf6b2 {color: #ffffff; background-color: #ffffff; }
+.sf6b5 {color: #ffffff; background-color: #0078d7; }
+.sf6b14 {color: #ffffff; background-color: #ffa0a0; }
+.sf6b16 {color: #ffffff; background-color: #f1e2ad; }
+.sf6b18 {color: #ffffff; background-color: #ffaa82; }
+.sf6b19 {color: #ffffff; background-color: #c8816c; }
+.sf7b2 {color: #0000ff; background-color: #ffffff; font-weight: bold; }
+.sf7b5 {color: #0000ff; background-color: #0078d7; font-weight: bold; }
+.sf7b14 {color: #0000ff; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16 {color: #0000ff; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18 {color: #0000ff; background-color: #ffaa82; font-weight: bold; }
+.sf7b19 {color: #0000ff; background-color: #c8816c; font-weight: bold; }
+.sf8b2 {color: #800080; background-color: #ffffff; }
+.sf8b5 {color: #800080; background-color: #0078d7; }
+.sf8b14 {color: #800080; background-color: #ffa0a0; }
+.sf8b16 {color: #800080; background-color: #f1e2ad; }
+.sf8b18 {color: #800080; background-color: #ffaa82; }
+.sf8b19 {color: #800080; background-color: #c8816c; }
+.sf9b2 {color: #008000; background-color: #ffffff; }
+.sf9b5 {color: #008000; background-color: #0078d7; }
+.sf9b14 {color: #008000; background-color: #ffa0a0; }
+.sf9b16 {color: #008000; background-color: #f1e2ad; }
+.sf9b18 {color: #008000; background-color: #ffaa82; }
+.sf9b19 {color: #008000; background-color: #c8816c; }
+.sf10b2 {color: #ff0000; background-color: #ffffff; }
+.sf10b5 {color: #ff0000; background-color: #0078d7; }
+.sf10b14 {color: #ff0000; background-color: #ffa0a0; }
+.sf10b16 {color: #ff0000; background-color: #f1e2ad; }
+.sf10b18 {color: #ff0000; background-color: #ffaa82; }
+.sf10b19 {color: #ff0000; background-color: #c8816c; }
+.sf11b2 {color: #606060; background-color: #ffffff; }
+.sf11b5 {color: #606060; background-color: #0078d7; }
+.sf11b14 {color: #606060; background-color: #ffa0a0; }
+.sf11b16 {color: #606060; background-color: #f1e2ad; }
+.sf11b18 {color: #606060; background-color: #ffaa82; }
+.sf11b19 {color: #606060; background-color: #c8816c; }
+.sf12b2 {color: #800000; background-color: #ffffff; }
+.sf12b5 {color: #800000; background-color: #0078d7; }
+.sf12b14 {color: #800000; background-color: #ffa0a0; }
+.sf12b16 {color: #800000; background-color: #f1e2ad; }
+.sf12b18 {color: #800000; background-color: #ffaa82; }
+.sf12b19 {color: #800000; background-color: #c8816c; }
+.sf13b2 {color: #0080c0; background-color: #ffffff; }
+.sf13b5 {color: #0080c0; background-color: #0078d7; }
+.sf13b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf13b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf13b18 {color: #0080c0; background-color: #ffaa82; }
+.sf13b19 {color: #0080c0; background-color: #c8816c; }
+.sf15b2 {color: #000000; background-color: #ffffff; }
+.sf15b5 {color: #000000; background-color: #0078d7; }
+.sf15b14 {color: #000000; background-color: #ffa0a0; }
+.sf15b16 {color: #000000; background-color: #f1e2ad; }
+.sf15b18 {color: #000000; background-color: #ffaa82; }
+.sf15b19 {color: #000000; background-color: #c8816c; }
+.sf17b2 {color: #000000; background-color: #ffffff; }
+.sf17b5 {color: #000000; background-color: #0078d7; }
+.sf17b14 {color: #000000; background-color: #ffa0a0; }
+.sf17b16 {color: #000000; background-color: #f1e2ad; }
+.sf17b18 {color: #000000; background-color: #ffaa82; }
+.sf17b19 {color: #000000; background-color: #c8816c; }
+.sf20b2 {color: #000080; background-color: #ffffff; }
+.sf20b5 {color: #000080; background-color: #0078d7; }
+.sf20b14 {color: #000080; background-color: #ffa0a0; }
+.sf20b16 {color: #000080; background-color: #f1e2ad; }
+.sf20b18 {color: #000080; background-color: #ffaa82; }
+.sf20b19 {color: #000080; background-color: #c8816c; }
+.sf21b2 {color: #0080c0; background-color: #ffffff; }
+.sf21b5 {color: #0080c0; background-color: #0078d7; }
+.sf21b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf21b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf21b18 {color: #0080c0; background-color: #ffaa82; }
+.sf21b19 {color: #0080c0; background-color: #c8816c; }
+.sf3b2i {color: #ababab; background-color: #ffffff; }
+.sf3b5i {color: #005190; background-color: #0078d7; }
+.sf3b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf3b16i {color: #a19774; background-color: #f1e2ad; }
+.sf3b18i {color: #ab7257; background-color: #ffaa82; }
+.sf3b19i {color: #865749; background-color: #c8816c; }
+.sf6b2i {color: #ffffff; background-color: #ffffff; }
+.sf6b5i {color: #54a4e4; background-color: #0078d7; }
+.sf6b14i {color: #ffbfbf; background-color: #ffa0a0; }
+.sf6b16i {color: #f5ebc8; background-color: #f1e2ad; }
+.sf6b18i {color: #ffc6ab; background-color: #ffaa82; }
+.sf6b19i {color: #daaa9c; background-color: #c8816c; }
+.sf7b2i {color: #ababff; background-color: #ffffff; font-weight: bold; }
+.sf7b5i {color: #0051e4; background-color: #0078d7; font-weight: bold; }
+.sf7b14i {color: #ab6bbf; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16i {color: #a197c8; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18i {color: #ab72ab; background-color: #ffaa82; font-weight: bold; }
+.sf7b19i {color: #86579c; background-color: #c8816c; font-weight: bold; }
+.sf8b2i {color: #d5abd5; background-color: #ffffff; }
+.sf8b5i {color: #2a51bb; background-color: #0078d7; }
+.sf8b14i {color: #d56b96; background-color: #ffa0a0; }
+.sf8b16i {color: #cc979f; background-color: #f1e2ad; }
+.sf8b18i {color: #d57282; background-color: #ffaa82; }
+.sf8b19i {color: #b15772; background-color: #c8816c; }
+.sf9b2i {color: #abd5ab; background-color: #ffffff; }
+.sf9b5i {color: #007a90; background-color: #0078d7; }
+.sf9b14i {color: #ab966b; background-color: #ffa0a0; }
+.sf9b16i {color: #a1c274; background-color: #f1e2ad; }
+.sf9b18i {color: #ab9d57; background-color: #ffaa82; }
+.sf9b19i {color: #868149; background-color: #c8816c; }
+.sf10b2i {color: #ffabab; background-color: #ffffff; }
+.sf10b5i {color: #545190; background-color: #0078d7; }
+.sf10b14i {color: #ff6b6b; background-color: #ffa0a0; }
+.sf10b16i {color: #f59774; background-color: #f1e2ad; }
+.sf10b18i {color: #ff7257; background-color: #ffaa82; }
+.sf10b19i {color: #da5749; background-color: #c8816c; }
+.sf11b2i {color: #cbcbcb; background-color: #ffffff; }
+.sf11b5i {color: #1f71b0; background-color: #0078d7; }
+.sf11b14i {color: #cb8b8b; background-color: #ffa0a0; }
+.sf11b16i {color: #c1b794; background-color: #f1e2ad; }
+.sf11b18i {color: #cb9277; background-color: #ffaa82; }
+.sf11b19i {color: #a67769; background-color: #c8816c; }
+.sf12b2i {color: #d5abab; background-color: #ffffff; }
+.sf12b5i {color: #2a5190; background-color: #0078d7; }
+.sf12b14i {color: #d56b6b; background-color: #ffa0a0; }
+.sf12b16i {color: #cc9774; background-color: #f1e2ad; }
+.sf12b18i {color: #d57257; background-color: #ffaa82; }
+.sf12b19i {color: #b15749; background-color: #c8816c; }
+.sf13b2i {color: #abd5eb; background-color: #ffffff; }
+.sf13b5i {color: #007ad0; background-color: #0078d7; }
+.sf13b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf13b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf13b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf13b19i {color: #868187; background-color: #c8816c; }
+.sf15b2i {color: #ababab; background-color: #ffffff; }
+.sf15b5i {color: #005190; background-color: #0078d7; }
+.sf15b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf15b16i {color: #a19774; background-color: #f1e2ad; }
+.sf15b18i {color: #ab7257; background-color: #ffaa82; }
+.sf15b19i {color: #865749; background-color: #c8816c; }
+.sf17b2i {color: #ababab; background-color: #ffffff; }
+.sf17b5i {color: #005190; background-color: #0078d7; }
+.sf17b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf17b16i {color: #a19774; background-color: #f1e2ad; }
+.sf17b18i {color: #ab7257; background-color: #ffaa82; }
+.sf17b19i {color: #865749; background-color: #c8816c; }
+.sf20b2i {color: #ababd5; background-color: #ffffff; }
+.sf20b5i {color: #0051bb; background-color: #0078d7; }
+.sf20b14i {color: #ab6b96; background-color: #ffa0a0; }
+.sf20b16i {color: #a1979f; background-color: #f1e2ad; }
+.sf20b18i {color: #ab7282; background-color: #ffaa82; }
+.sf20b19i {color: #865772; background-color: #c8816c; }
+.sf21b2i {color: #abd5eb; background-color: #ffffff; }
+.sf21b5i {color: #007ad0; background-color: #0078d7; }
+.sf21b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf21b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf21b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf21b19i {color: #868187; background-color: #c8816c; }
+.cn {text-align: center; word-break: normal; color: #000000; background-color: #f0f0f0;}
+.ln {text-align: right; word-break: normal; color: #000000; background-color: #f0f0f0;}
+-->
+</style>
+</head>
+<body>
+<table style="width: 100%; border-collapse: collapse;">
+<colgroup>
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 2 - 0.5em);" />
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 2 - 0.5em);" />
+</colgroup>
+<thead>
+<tr>
+<th colspan="2" class="title">C:\Users\bike1\FRC\2025\YALLtest\src\main\java\limelight\structures\LimelightSettings.java</th>
+<th colspan="2" class="title">C:\Users\bike1\FRC\2025\YALL-main\yall\java\limelight\structures\LimelightSettings.java</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">package</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">package</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">static</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">.</span><span class="sf3b2">LimelightUtils</span><span class="sf11b2">.</span><span class="sf3b2">ori<wbr>entation3dToArray</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">static</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">.</span><span class="sf3b2">LimelightUtils</span><span class="sf11b2">.</span><span class="sf3b2">ori<wbr>entation3dToArray</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">static</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">.</span><span class="sf3b2">LimelightUtils</span><span class="sf11b2">.</span><span class="sf3b2">pos<wbr>e3dToArray</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">static</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">.</span><span class="sf3b2">LimelightUtils</span><span class="sf11b2">.</span><span class="sf3b2">pos<wbr>e3dToArray</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">static</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">.</span><span class="sf3b2">LimelightUtils</span><span class="sf11b2">.</span><span class="sf3b2">tra<wbr>nslation3dToArray</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">static</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">.</span><span class="sf3b2">LimelightUtils</span><span class="sf11b2">.</span><span class="sf3b2">tra<wbr>nslation3dToArray</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">math</span><span class="sf11b2">.</span><span class="sf3b2">geometry</span><span class="sf11b2">.</span><span class="sf3b2">Pose3d</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">math</span><span class="sf11b2">.</span><span class="sf3b2">geometry</span><span class="sf11b2">.</span><span class="sf3b2">Pose3d</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">math</span><span class="sf11b2">.</span><span class="sf3b2">geometry</span><span class="sf11b2">.</span><span class="sf3b2">Translation<wbr>3d</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">math</span><span class="sf11b2">.</span><span class="sf3b2">geometry</span><span class="sf11b2">.</span><span class="sf3b2">Translation<wbr>3d</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">DoubleArray<wbr>Entry</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">DoubleArray<wbr>Entry</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">NetworkTabl<wbr>e</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">NetworkTabl<wbr>e</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">NetworkTabl<wbr>eEntry</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">NetworkTabl<wbr>eEntry</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">NetworkTabl<wbr>eInstance</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">NetworkTabl<wbr>eInstance</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">java</span><span class="sf11b2">.</span><span class="sf3b2">util</span><span class="sf11b2">.</span><span class="sf3b2">List</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">java</span><span class="sf11b2">.</span><span class="sf3b2">util</span><span class="sf11b2">.</span><span class="sf3b2">List</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">Limelight</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">Limelight</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp;* Settings class to apply configurable options to the {@link Limelight}</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp;* Settings class to apply configurable options to the {@link Limelight}</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d1" href="#d1">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp;* &lt;p&gt;</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp;* These settings are sent from the roboRIO back to the Limelight to affect the LL.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp;* &lt;p&gt;</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp;* One or more chains of ".withXXXX" methods can change the LL settings. The action</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp;* of each ".withXXXX" method is essentially immediate, however, some slight delay</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp;* is possible and the {@link #save} method will immediately save any settings that had</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp;* not yet been saved.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp;* &lt;p&gt;</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp;* </span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp;* Initially, at constructor time, settings are fetched from the LL, however, there</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp;* is no provision to programatically access those values - they are dead, useless.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">class</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">class</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">{</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">{</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* {@link NetworkTable} for the {@link Limelight}</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* {@link NetworkTable} for the {@link Limelight}</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTable</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">limelightTable</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTable</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">limelightTable</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* {@link Limelight} to fetch data for.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* {@link Limelight} to fetch data for.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">Limelight</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">Limelight</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* LED Mode for the limelight. 0 = Pipeline Control, 1 = Force Off, 2 = Force Blink, 3 = Force On</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* LED Mode for the limelight. 0 = Pipeline Control, 1 = Force Off, 2 = Force Blink, 3 = Force On</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">ledMode</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">ledMode</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* {@link Limelight} PipelineIndex to use.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* {@link Limelight} PipelineIndex to use.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">pipelineIndex</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">pipelineIndex</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Priority TagID for the limelight.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Priority TagID for the limelight.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">priorityTagID</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">priorityTagID</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Stream mode, 0 = Side-by-side, 1 = Picture-in-Picture (second in corner), 2 = Picture-in-Picture (primary in</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Stream mode, 0 = Side-by-side, 1 = Picture-in-Picture (second in corner), 2 = Picture-in-Picture (primary in</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* corner)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* corner)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">streamMode</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">streamMode</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Crop window for the camera. The crop window in the UI must be completely open. DoubleArray</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Crop window for the camera. The crop window in the UI must be completely open. DoubleArray</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* [cropXMin,cropXMax,cropYMin,cropYMax] values between -1 and 1</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* [cropXMin,cropXMax,cropYMin,cropYMax] values between -1 and 1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">cropWindow</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">cropWindow</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Sets 3d offset point for easy 3d targeting Sets the 3D point-of-interest offset for the current fiducial pipeline.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Sets 3d offset point for easy 3d targeting Sets the 3D point-of-interest offset for the current fiducial pipeline.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d2" href="#d2">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* &lt;p&gt;</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* https://docs.limelightvision.io/docs/do<wbr>cs-limelight/pipeline-apriltag/apriltag<wbr>-3d#point-of-interest-tracking</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* https://docs.limelightvision.io/docs/do<wbr>cs-limelight/pipeline-apriltag/apriltag<wbr>-3d#point-of-interest-tracking</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* &lt;p&gt;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* &lt;p&gt;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* DoubleArray [offsetX(meters), offsetY(meters), offsetZ(meters)]</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* DoubleArray [offsetX(meters), offsetY(meters), offsetZ(meters)]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">fiducial3DOffset</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">fiducial3DOffset</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d3" href="#d3">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* Robot orientation for MegaTag2 localization algorithm.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* Robot orientation for MegaTag2 localization algorithm.</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">DoubleArray [yaw(degrees), *yawRaw(degreesPerSecond),</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;</span><span class="sf17b18">*</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">&lt;p&gt;</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;</span><span class="sf17b18">*</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;DoubleArray [yaw(degrees), *yawRaw(degreesPerSecond),</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* *pitch(degrees), *pitchRate(degreesPerSecond), *roll(degrees), *rollRate(degreesPerSecond)]</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* *pitch(degrees), *pitchRate(degreesPerSecond), *roll(degrees), *rollRate(degreesPerSecond)]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">robotOrientationSet</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">robotOrientationSet</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* DoubleArray of valid apriltag id's to track.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* DoubleArray of valid apriltag id's to track.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">fiducialIDFiltersOverride</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">fiducialIDFiltersOverride</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Downscaling factor for AprilTag detection. Increasing downscale can improve performance at the cost of potentially</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Downscaling factor for AprilTag detection. Increasing downscale can improve performance at the cost of potentially</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* reduced detection range. Valid values ar [0 (pipeline control), 1 (no downscale), 2, 3, 4]</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* reduced detection range. Valid values ar [0 (pipeline control), 1 (no downscale), 2, 3, 4]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">downscale</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">downscale</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Camera pose relative to the robot. DoubleArray [forward(meters), side(meters), up(meters), roll(degrees),</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Camera pose relative to the robot. DoubleArray [forward(meters), side(meters), up(meters), roll(degrees),</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* pitch(degrees), yaw(degrees)]</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* pitch(degrees), yaw(degrees)]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">cameraToRobot</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">cameraToRobot</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Create a {@link LimelightSettings} object with all configurable features of a {@link Limelight}.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Create a {@link LimelightSettings} object with all configurable features of a {@link Limelight}.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param camera {@link Limelight} to use.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param camera {@link Limelight} to use.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">LimelightSettings</span><span class="sf11b2">(</span><span class="sf3b2">Limelight</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">camera</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">LimelightSettings</span><span class="sf11b2">(</span><span class="sf3b2">Limelight</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">camera</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">limelight</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">camera</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">limelight</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">camera</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">limelightTable</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf8b2">getNTTable</span><span class="sf11b2">();</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">limelightTable</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf8b2">getNTTable</span><span class="sf11b2">();</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">ledMode</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"ledMode"</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">ledMode</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"ledMode"</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">pipelineIndex</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"pipeline"</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">pipelineIndex</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"pipeline"</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">priorityTagID</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"priorityid"</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">priorityTagID</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"priorityid"</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">streamMode</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"stream"</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">streamMode</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"stream"</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">cropWindow</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"cro<wbr>p"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">cropWindow</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"cro<wbr>p"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">robotOrientationSet</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"rob<wbr>ot_orientation_set"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">robotOrientationSet</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"rob<wbr>ot_orientation_set"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">downscale</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"fiducial_downs<wbr>cale_set"</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">downscale</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"fiducial_downs<wbr>cale_set"</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">fiducial3DOffset</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"fid<wbr>ucial_offset_set"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">fiducial3DOffset</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"fid<wbr>ucial_offset_set"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">cameraToRobot</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"cam<wbr>erapose_robotspace_set"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">cameraToRobot</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"cam<wbr>erapose_robotspace_set"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">fiducialIDFiltersOverride</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"fid<wbr>ucial_id_filters_set"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">fiducialIDFiltersOverride</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"fid<wbr>ucial_id_filters_set"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the {@link Limelight} {@link LEDMode}.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the {@link Limelight} {@link LEDMode}.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d4" href="#d4">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* &lt;p&gt; This method changes the Limelight - normally immediately.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param mode {@link LEDMode} enum</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param mode {@link LEDMode} enum</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withLimelightLEDMode</span><span class="sf11b2">(</span><span class="sf3b2">LEDMode</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">mode</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withLimelightLEDMode</span><span class="sf11b2">(</span><span class="sf3b2">LEDMode</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">mode</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">ledMode</span><span class="sf11b2">.</span><span class="sf8b2">setNumber</span><span class="sf11b2">(</span><span class="sf3b2">mode</span><span class="sf11b2">.</span><span class="sf8b2">ordinal</span><span class="sf11b2">());</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">ledMode</span><span class="sf11b2">.</span><span class="sf8b2">setNumber</span><span class="sf11b2">(</span><span class="sf3b2">mode</span><span class="sf11b2">.</span><span class="sf8b2">ordinal</span><span class="sf11b2">());</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the current pipeline index for the {@link Limelight}</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the current pipeline index for the {@link Limelight}</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d5" href="#d5">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* &lt;p&gt; This method changes the Limelight - normally immediately.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param index Pipeline index to use.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param index Pipeline index to use.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings}</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings}</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withPipelineIndex</span><span class="sf11b2">(</span><span class="sf7b2">int</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">index</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withPipelineIndex</span><span class="sf11b2">(</span><span class="sf7b2">int</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">index</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">pipelineIndex</span><span class="sf11b2">.</span><span class="sf8b2">setNumber</span><span class="sf11b2">(</span><span class="sf3b2">index</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">pipelineIndex</span><span class="sf11b2">.</span><span class="sf8b2">setNumber</span><span class="sf11b2">(</span><span class="sf3b2">index</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the Priority Tag ID for {@link Limelight}</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the Priority Tag ID for {@link Limelight}</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d6" href="#d6">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* &lt;p&gt; This method changes the Limelight - normally immediately.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param aprilTagId AprilTag ID to set as a priority.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param aprilTagId AprilTag ID to set as a priority.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withPriorityTagId</span><span class="sf11b2">(</span><span class="sf7b2">int</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">aprilTagId</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withPriorityTagId</span><span class="sf11b2">(</span><span class="sf7b2">int</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">aprilTagId</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">priorityTagID</span><span class="sf11b2">.</span><span class="sf8b2">setNumber</span><span class="sf11b2">(</span><span class="sf3b2">aprilTagId</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">priorityTagID</span><span class="sf11b2">.</span><span class="sf8b2">setNumber</span><span class="sf11b2">(</span><span class="sf3b2">aprilTagId</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the Stream mode based on the {@link StreamMode} enum</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the Stream mode based on the {@link StreamMode} enum</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d7" href="#d7">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* &lt;p&gt; This method changes the Limelight - normally immediately.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param mode {@link StreamMode} to use</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param mode {@link StreamMode} to use</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withStreamMode</span><span class="sf11b2">(</span><span class="sf3b2">StreamMode</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">mode</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withStreamMode</span><span class="sf11b2">(</span><span class="sf3b2">StreamMode</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">mode</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">streamMode</span><span class="sf11b2">.</span><span class="sf8b2">setNumber</span><span class="sf11b2">(</span><span class="sf3b2">mode</span><span class="sf11b2">.</span><span class="sf8b2">ordinal</span><span class="sf11b2">());</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">streamMode</span><span class="sf11b2">.</span><span class="sf8b2">setNumber</span><span class="sf11b2">(</span><span class="sf3b2">mode</span><span class="sf11b2">.</span><span class="sf8b2">ordinal</span><span class="sf11b2">());</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Sets the crop window for the camera. The crop window in the UI must be completely open.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Sets the crop window for the camera. The crop window in the UI must be completely open.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d8" href="#d8">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* &lt;p&gt; This method changes the Limelight - normally immediately.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param minX Minimum X value (-1 to 1)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param minX Minimum X value (-1 to 1)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param maxX Maximum X value (-1 to 1)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param maxX Maximum X value (-1 to 1)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param minY Minimum Y value (-1 to 1)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param minY Minimum Y value (-1 to 1)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param maxY Maximum Y value (-1 to 1)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param maxY Maximum Y value (-1 to 1)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withCropWindow</span><span class="sf11b2">(</span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">minX</span><span class="sf11b2">, </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">maxX</span><span class="sf11b2">, </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">minY</span><span class="sf11b2">, </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">maxY</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withCropWindow</span><span class="sf11b2">(</span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">minX</span><span class="sf11b2">, </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">maxX</span><span class="sf11b2">, </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">minY</span><span class="sf11b2">, </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">maxY</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">cropWindow</span><span class="sf11b2">.</span><span class="sf8b2">set</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[]{</span><span class="sf3b2">minX</span><span class="sf11b2">, </span><span class="sf3b2">maxX</span><span class="sf11b2">, </span><span class="sf3b2">minY</span><span class="sf11b2">, </span><span class="sf3b2">maxY</span><span class="sf11b2">});</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">cropWindow</span><span class="sf11b2">.</span><span class="sf8b2">set</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[]{</span><span class="sf3b2">minX</span><span class="sf11b2">, </span><span class="sf3b2">maxX</span><span class="sf11b2">, </span><span class="sf3b2">minY</span><span class="sf11b2">, </span><span class="sf3b2">maxY</span><span class="sf11b2">});</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d9" href="#d9">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* Set the </span><span class="sf17b18">current</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;robot {@link Orientation3d} </span><span class="sf17b18">(normally</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;given </span><span class="sf17b18">by</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">the</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">robot</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">gyro)</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">for</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">LL</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">to</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">use</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">in</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">its</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">MegaTag2</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">determination</span><span style="color: #000000; background-color: #efcb05; ">.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* Set the </span><span style="color: #000000; background-color: #efcb05; ">robot {@link Orientation3d} </span><span style="color: #000000; background-color: #efcb05; ">given</span><span style="color: #000000; background-color: #efcb05; ">.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;</span><span class="sf17b18">*</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">&lt;p&gt;</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">This</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">method</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">changes</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">the</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">Limelight</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">-</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">normally</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">immediately.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d10" href="#d10">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* @param orientation {@link Orientation3d} object to set the current orientation to</span><span style="color: #000000; background-color: #efcb05; ">.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* @param orientation {@link Orientation3d} object to set the current orientation to</span><span class="sf17b18">o</span><span style="color: #000000; background-color: #efcb05; ">.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withRobotOrientation</span><span class="sf11b2">(</span><span class="sf3b2">Orientation3d</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">orientation</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withRobotOrientation</span><span class="sf11b2">(</span><span class="sf3b2">Orientation3d</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">orientation</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">robotOrientationSet</span><span class="sf11b2">.</span><span class="sf8b2">set</span><span class="sf11b2">(</span><span class="sf8b2">orientation3dTo<wbr>Array</span><span class="sf11b2">(</span><span class="sf3b2">orientation</span><span class="sf11b2">));</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">robotOrientationSet</span><span class="sf11b2">.</span><span class="sf8b2">set</span><span class="sf11b2">(</span><span class="sf8b2">orientation3dTo<wbr>Array</span><span class="sf11b2">(</span><span class="sf3b2">orientation</span><span class="sf11b2">));</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Sets the downscaling factor for AprilTag detection. Increasing downscale can improve performance at the cost of</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Sets the downscaling factor for AprilTag detection. Increasing downscale can improve performance at the cost of</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* potentially reduced detection range.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* potentially reduced detection range.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d11" href="#d11">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* &lt;p&gt; This method changes the Limelight - normally immediately.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param downscalingOverride Downscale factor. Valid values: 1.0 (no downscale), 1.5, 2.0, 3.0, 4.0. Set to 0 for</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param downscalingOverride Downscale factor. Valid values: 1.0 (no downscale), 1.5, 2.0, 3.0, 4.0. Set to 0 for</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pipeline control.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pipeline control.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withFiducialDownscalingOverride</span><span class="sf11b2">(</span><span class="sf3b2">Downsca<wbr>lingOverride</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">downscalingOverride</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withFiducialDownscalingOverride</span><span class="sf11b2">(</span><span class="sf3b2">Downsca<wbr>lingOverride</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">downscalingOverride</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">downscale</span><span class="sf11b2">.</span><span class="sf8b2">setDouble</span><span class="sf11b2">(</span><span class="sf3b2">downscalingOverride<wbr></span><span class="sf11b2">.</span><span class="sf8b2">ordinal</span><span class="sf11b2">());</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">downscale</span><span class="sf11b2">.</span><span class="sf8b2">setDouble</span><span class="sf11b2">(</span><span class="sf3b2">downscalingOverride<wbr></span><span class="sf11b2">.</span><span class="sf8b2">ordinal</span><span class="sf11b2">());</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the offset from the AprilTag that is of interest. More information here. &lt;a</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the offset from the AprilTag that is of interest. More information here. &lt;a</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* href="https://docs.limelightvision.io/d<wbr>ocs/docs-limelight/pipeline-apriltag/ap<wbr>riltag-3d#point-of-interest-tracking"&gt;D<wbr>ocs</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* href="https://docs.limelightvision.io/d<wbr>ocs/docs-limelight/pipeline-apriltag/ap<wbr>riltag-3d#point-of-interest-tracking"&gt;D<wbr>ocs</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* page&lt;/a&gt;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* page&lt;/a&gt;</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d12" href="#d12">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* &lt;p&gt; This method changes the Limelight - normally immediately.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param offset {@link Translation3d} offset.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param offset {@link Translation3d} offset.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withAprilTagOffset</span><span class="sf11b2">(</span><span class="sf3b2">Translation3d</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">offset</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withAprilTagOffset</span><span class="sf11b2">(</span><span class="sf3b2">Translation3d</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">offset</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">fiducial3DOffset</span><span class="sf11b2">.</span><span class="sf8b2">set</span><span class="sf11b2">(</span><span class="sf8b2">translation3dToArr<wbr>ay</span><span class="sf11b2">(</span><span class="sf3b2">offset</span><span class="sf11b2">));</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">fiducial3DOffset</span><span class="sf11b2">.</span><span class="sf8b2">set</span><span class="sf11b2">(</span><span class="sf8b2">translation3dToArr<wbr>ay</span><span class="sf11b2">(</span><span class="sf3b2">offset</span><span class="sf11b2">));</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the {@link Limelight} AprilTagID filter/override of which to track.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the {@link Limelight} AprilTagID filter/override of which to track.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d13" href="#d13">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* &lt;p&gt; This method changes the Limelight - normally immediately.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param idFilter Array of AprilTag ID's to track</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param idFilter Array of AprilTag ID's to track</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withArilTagIdFilter</span><span class="sf11b2">(</span><span class="sf3b2">List</span><span class="sf11b2">&lt;</span><span class="sf3b2">Double</span><span class="sf11b2">&gt; </span><span class="sf3b2">idFilter</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withArilTagIdFilter</span><span class="sf11b2">(</span><span class="sf3b2">List</span><span class="sf11b2">&lt;</span><span class="sf3b2">Double</span><span class="sf11b2">&gt; </span><span class="sf3b2">idFilter</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">fiducialIDFiltersOverride</span><span class="sf11b2">.</span><span class="sf8b2">set</span><span class="sf11b2">(</span><span class="sf3b2">idFilter</span><span class="sf11b2">.<wbr></span><span class="sf8b2">stream</span><span class="sf11b2">().</span><span class="sf8b2">mapToDouble</span><span class="sf11b2">(</span><span class="sf3b2">Double</span><span class="sf11b2">::</span><span class="sf3b2">doubleValu<wbr>e</span><span class="sf11b2">).</span><span class="sf8b2">toArray</span><span class="sf11b2">());</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">fiducialIDFiltersOverride</span><span class="sf11b2">.</span><span class="sf8b2">set</span><span class="sf11b2">(</span><span class="sf3b2">idFilter</span><span class="sf11b2">.<wbr></span><span class="sf8b2">stream</span><span class="sf11b2">().</span><span class="sf8b2">mapToDouble</span><span class="sf11b2">(</span><span class="sf3b2">Double</span><span class="sf11b2">::</span><span class="sf3b2">doubleValu<wbr>e</span><span class="sf11b2">).</span><span class="sf8b2">toArray</span><span class="sf11b2">());</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the {@link Limelight} offset.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the {@link Limelight} offset.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d14" href="#d14">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* &lt;p&gt; This method changes the Limelight - normally immediately.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param offset {@link Pose3d} of the {@link Limelight} with the {@link edu.wpi.first.math.geometry.Rotation3d}<wbr> set</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param offset {@link Pose3d} of the {@link Limelight} with the {@link edu.wpi.first.math.geometry.Rotation3d}<wbr> set</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; in Meters.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; in Meters.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightSettings} for chaining.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withCameraOffset</span><span class="sf11b2">(</span><span class="sf3b2">Pose3d</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">offset</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightSettings</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">withCameraOffset</span><span class="sf11b2">(</span><span class="sf3b2">Pose3d</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">offset</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">cameraToRobot</span><span class="sf11b2">.</span><span class="sf8b2">set</span><span class="sf11b2">(</span><span class="sf8b2">pose3dToArray</span><span class="sf11b2">(</span><span class="sf3b2">offset</span><span class="sf11b2">)<wbr>);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">cameraToRobot</span><span class="sf11b2">.</span><span class="sf8b2">set</span><span class="sf11b2">(</span><span class="sf8b2">pose3dToArray</span><span class="sf11b2">(</span><span class="sf3b2">offset</span><span class="sf11b2">)<wbr>);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">this</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d15" href="#d15">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* Push a</span><span class="sf17b16">ny</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">pending</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;changes to the {@link NetworkTable} instance immediately.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* Push a</span><span class="sf17b16">ll</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">local</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;changes to the {@link NetworkTable} instance immediately.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;</span><span class="sf17b18">*</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">&lt;p&gt;</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">This</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">method</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">changes</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">the</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">Limelight</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">immediately.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;</span><span class="sf17b18">*</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">&lt;p&gt;</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">Most</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">setting</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">changes</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">are</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">done</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">essentially</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">immediately</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">and</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">this</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">method</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;</span><span class="sf17b18">*</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">isn't</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">needed</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">but</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">does</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">no</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">harm</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">to</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">assure</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">changes.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">void</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">save</span><span class="sf11b2">()</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">void</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">save</span><span class="sf11b2">()</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">NetworkTableInstance</span><span class="sf11b2">.</span><span class="sf8b2">getDefault</span><span class="sf11b2">().</span><span class="sf8b2">flush<wbr></span><span class="sf11b2">();</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">NetworkTableInstance</span><span class="sf11b2">.</span><span class="sf8b2">getDefault</span><span class="sf11b2">().</span><span class="sf8b2">flush<wbr></span><span class="sf11b2">();</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* LED Mode for the {@link Limelight}.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* LED Mode for the {@link Limelight}.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">enum</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LEDMode</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">enum</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LEDMode</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">PipelineControl</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">PipelineControl</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">ForceOff</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">ForceOff</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">ForceBlink</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">ForceBlink</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">ForceOn</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">ForceOn</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Stream mode for the {@link Limelight}</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Stream mode for the {@link Limelight}</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">enum</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">StreamMode</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">enum</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">StreamMode</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Side by side.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Side by side.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">Standard</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">Standard</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Picture in picture, with secondary in corner.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Picture in picture, with secondary in corner.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">PictureInPictureMain</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">PictureInPictureMain</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Picture in picture, with main in corner.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Picture in picture, with main in corner.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">PictureInPictureSecondary</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">PictureInPictureSecondary</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Downscaling Override Enum for {@link Limelight}</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Downscaling Override Enum for {@link Limelight}</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">enum</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DownscalingOverride</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">enum</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DownscalingOverride</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Pipeline downscaling, equivalent to 0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Pipeline downscaling, equivalent to 0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">Pipeline</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">Pipeline</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* No downscaling, equivalent to 1</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* No downscaling, equivalent to 1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">NoDownscale</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">NoDownscale</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Half downscaling, equivalent to 1.5</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Half downscaling, equivalent to 1.5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">HalfDownscale</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">HalfDownscale</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Double downscaling, equivalent to 2</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Double downscaling, equivalent to 2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">DoubleDownscale</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">DoubleDownscale</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Triple downscaling, equivalent to 3</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Triple downscaling, equivalent to 3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">TripleDownscale</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">TripleDownscale</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Quadruple downscaling, equivalent to 4</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;* Quadruple downscaling, equivalent to 4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">QuadrupleDownscale</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">QuadrupleDownscale</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">}</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">}</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

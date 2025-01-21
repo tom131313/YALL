@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WinMerge File Compare Report</title>
+<style>
+<!--
+table { table-layout: fixed; margin: 0; border: 1px solid #a0a0a0; box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); }
+th { position: sticky; top: 0; }
+td,th { word-break: break-all; font-size: 11pt; padding: 0 3px; }
+tr { vertical-align: top; }
+.title { font-weight: bold; color: white; background-color: blue; vertical-align: top; text-align: center; padding: 4px 4px; background: linear-gradient(mediumblue, darkblue);}
+.sf3b2 {color: #000000; background-color: #ffffff; }
+.sf3b5 {color: #000000; background-color: #0078d7; }
+.sf3b14 {color: #000000; background-color: #ffa0a0; }
+.sf3b16 {color: #000000; background-color: #f1e2ad; }
+.sf3b18 {color: #000000; background-color: #ffaa82; }
+.sf3b19 {color: #000000; background-color: #c8816c; }
+.sf6b2 {color: #ffffff; background-color: #ffffff; }
+.sf6b5 {color: #ffffff; background-color: #0078d7; }
+.sf6b14 {color: #ffffff; background-color: #ffa0a0; }
+.sf6b16 {color: #ffffff; background-color: #f1e2ad; }
+.sf6b18 {color: #ffffff; background-color: #ffaa82; }
+.sf6b19 {color: #ffffff; background-color: #c8816c; }
+.sf7b2 {color: #0000ff; background-color: #ffffff; font-weight: bold; }
+.sf7b5 {color: #0000ff; background-color: #0078d7; font-weight: bold; }
+.sf7b14 {color: #0000ff; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16 {color: #0000ff; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18 {color: #0000ff; background-color: #ffaa82; font-weight: bold; }
+.sf7b19 {color: #0000ff; background-color: #c8816c; font-weight: bold; }
+.sf8b2 {color: #800080; background-color: #ffffff; }
+.sf8b5 {color: #800080; background-color: #0078d7; }
+.sf8b14 {color: #800080; background-color: #ffa0a0; }
+.sf8b16 {color: #800080; background-color: #f1e2ad; }
+.sf8b18 {color: #800080; background-color: #ffaa82; }
+.sf8b19 {color: #800080; background-color: #c8816c; }
+.sf9b2 {color: #008000; background-color: #ffffff; }
+.sf9b5 {color: #008000; background-color: #0078d7; }
+.sf9b14 {color: #008000; background-color: #ffa0a0; }
+.sf9b16 {color: #008000; background-color: #f1e2ad; }
+.sf9b18 {color: #008000; background-color: #ffaa82; }
+.sf9b19 {color: #008000; background-color: #c8816c; }
+.sf10b2 {color: #ff0000; background-color: #ffffff; }
+.sf10b5 {color: #ff0000; background-color: #0078d7; }
+.sf10b14 {color: #ff0000; background-color: #ffa0a0; }
+.sf10b16 {color: #ff0000; background-color: #f1e2ad; }
+.sf10b18 {color: #ff0000; background-color: #ffaa82; }
+.sf10b19 {color: #ff0000; background-color: #c8816c; }
+.sf11b2 {color: #606060; background-color: #ffffff; }
+.sf11b5 {color: #606060; background-color: #0078d7; }
+.sf11b14 {color: #606060; background-color: #ffa0a0; }
+.sf11b16 {color: #606060; background-color: #f1e2ad; }
+.sf11b18 {color: #606060; background-color: #ffaa82; }
+.sf11b19 {color: #606060; background-color: #c8816c; }
+.sf12b2 {color: #800000; background-color: #ffffff; }
+.sf12b5 {color: #800000; background-color: #0078d7; }
+.sf12b14 {color: #800000; background-color: #ffa0a0; }
+.sf12b16 {color: #800000; background-color: #f1e2ad; }
+.sf12b18 {color: #800000; background-color: #ffaa82; }
+.sf12b19 {color: #800000; background-color: #c8816c; }
+.sf13b2 {color: #0080c0; background-color: #ffffff; }
+.sf13b5 {color: #0080c0; background-color: #0078d7; }
+.sf13b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf13b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf13b18 {color: #0080c0; background-color: #ffaa82; }
+.sf13b19 {color: #0080c0; background-color: #c8816c; }
+.sf15b2 {color: #000000; background-color: #ffffff; }
+.sf15b5 {color: #000000; background-color: #0078d7; }
+.sf15b14 {color: #000000; background-color: #ffa0a0; }
+.sf15b16 {color: #000000; background-color: #f1e2ad; }
+.sf15b18 {color: #000000; background-color: #ffaa82; }
+.sf15b19 {color: #000000; background-color: #c8816c; }
+.sf17b2 {color: #000000; background-color: #ffffff; }
+.sf17b5 {color: #000000; background-color: #0078d7; }
+.sf17b14 {color: #000000; background-color: #ffa0a0; }
+.sf17b16 {color: #000000; background-color: #f1e2ad; }
+.sf17b18 {color: #000000; background-color: #ffaa82; }
+.sf17b19 {color: #000000; background-color: #c8816c; }
+.sf20b2 {color: #000080; background-color: #ffffff; }
+.sf20b5 {color: #000080; background-color: #0078d7; }
+.sf20b14 {color: #000080; background-color: #ffa0a0; }
+.sf20b16 {color: #000080; background-color: #f1e2ad; }
+.sf20b18 {color: #000080; background-color: #ffaa82; }
+.sf20b19 {color: #000080; background-color: #c8816c; }
+.sf21b2 {color: #0080c0; background-color: #ffffff; }
+.sf21b5 {color: #0080c0; background-color: #0078d7; }
+.sf21b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf21b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf21b18 {color: #0080c0; background-color: #ffaa82; }
+.sf21b19 {color: #0080c0; background-color: #c8816c; }
+.sf3b2i {color: #ababab; background-color: #ffffff; }
+.sf3b5i {color: #005190; background-color: #0078d7; }
+.sf3b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf3b16i {color: #a19774; background-color: #f1e2ad; }
+.sf3b18i {color: #ab7257; background-color: #ffaa82; }
+.sf3b19i {color: #865749; background-color: #c8816c; }
+.sf6b2i {color: #ffffff; background-color: #ffffff; }
+.sf6b5i {color: #54a4e4; background-color: #0078d7; }
+.sf6b14i {color: #ffbfbf; background-color: #ffa0a0; }
+.sf6b16i {color: #f5ebc8; background-color: #f1e2ad; }
+.sf6b18i {color: #ffc6ab; background-color: #ffaa82; }
+.sf6b19i {color: #daaa9c; background-color: #c8816c; }
+.sf7b2i {color: #ababff; background-color: #ffffff; font-weight: bold; }
+.sf7b5i {color: #0051e4; background-color: #0078d7; font-weight: bold; }
+.sf7b14i {color: #ab6bbf; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16i {color: #a197c8; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18i {color: #ab72ab; background-color: #ffaa82; font-weight: bold; }
+.sf7b19i {color: #86579c; background-color: #c8816c; font-weight: bold; }
+.sf8b2i {color: #d5abd5; background-color: #ffffff; }
+.sf8b5i {color: #2a51bb; background-color: #0078d7; }
+.sf8b14i {color: #d56b96; background-color: #ffa0a0; }
+.sf8b16i {color: #cc979f; background-color: #f1e2ad; }
+.sf8b18i {color: #d57282; background-color: #ffaa82; }
+.sf8b19i {color: #b15772; background-color: #c8816c; }
+.sf9b2i {color: #abd5ab; background-color: #ffffff; }
+.sf9b5i {color: #007a90; background-color: #0078d7; }
+.sf9b14i {color: #ab966b; background-color: #ffa0a0; }
+.sf9b16i {color: #a1c274; background-color: #f1e2ad; }
+.sf9b18i {color: #ab9d57; background-color: #ffaa82; }
+.sf9b19i {color: #868149; background-color: #c8816c; }
+.sf10b2i {color: #ffabab; background-color: #ffffff; }
+.sf10b5i {color: #545190; background-color: #0078d7; }
+.sf10b14i {color: #ff6b6b; background-color: #ffa0a0; }
+.sf10b16i {color: #f59774; background-color: #f1e2ad; }
+.sf10b18i {color: #ff7257; background-color: #ffaa82; }
+.sf10b19i {color: #da5749; background-color: #c8816c; }
+.sf11b2i {color: #cbcbcb; background-color: #ffffff; }
+.sf11b5i {color: #1f71b0; background-color: #0078d7; }
+.sf11b14i {color: #cb8b8b; background-color: #ffa0a0; }
+.sf11b16i {color: #c1b794; background-color: #f1e2ad; }
+.sf11b18i {color: #cb9277; background-color: #ffaa82; }
+.sf11b19i {color: #a67769; background-color: #c8816c; }
+.sf12b2i {color: #d5abab; background-color: #ffffff; }
+.sf12b5i {color: #2a5190; background-color: #0078d7; }
+.sf12b14i {color: #d56b6b; background-color: #ffa0a0; }
+.sf12b16i {color: #cc9774; background-color: #f1e2ad; }
+.sf12b18i {color: #d57257; background-color: #ffaa82; }
+.sf12b19i {color: #b15749; background-color: #c8816c; }
+.sf13b2i {color: #abd5eb; background-color: #ffffff; }
+.sf13b5i {color: #007ad0; background-color: #0078d7; }
+.sf13b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf13b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf13b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf13b19i {color: #868187; background-color: #c8816c; }
+.sf15b2i {color: #ababab; background-color: #ffffff; }
+.sf15b5i {color: #005190; background-color: #0078d7; }
+.sf15b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf15b16i {color: #a19774; background-color: #f1e2ad; }
+.sf15b18i {color: #ab7257; background-color: #ffaa82; }
+.sf15b19i {color: #865749; background-color: #c8816c; }
+.sf17b2i {color: #ababab; background-color: #ffffff; }
+.sf17b5i {color: #005190; background-color: #0078d7; }
+.sf17b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf17b16i {color: #a19774; background-color: #f1e2ad; }
+.sf17b18i {color: #ab7257; background-color: #ffaa82; }
+.sf17b19i {color: #865749; background-color: #c8816c; }
+.sf20b2i {color: #ababd5; background-color: #ffffff; }
+.sf20b5i {color: #0051bb; background-color: #0078d7; }
+.sf20b14i {color: #ab6b96; background-color: #ffa0a0; }
+.sf20b16i {color: #a1979f; background-color: #f1e2ad; }
+.sf20b18i {color: #ab7282; background-color: #ffaa82; }
+.sf20b19i {color: #865772; background-color: #c8816c; }
+.sf21b2i {color: #abd5eb; background-color: #ffffff; }
+.sf21b5i {color: #007ad0; background-color: #0078d7; }
+.sf21b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf21b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf21b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf21b19i {color: #868187; background-color: #c8816c; }
+.cn {text-align: center; word-break: normal; color: #000000; background-color: #f0f0f0;}
+.ln {text-align: right; word-break: normal; color: #000000; background-color: #f0f0f0;}
+-->
+</style>
+</head>
+<body>
+<table style="width: 100%; border-collapse: collapse;">
+<colgroup>
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 2 - 0.5em);" />
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 2 - 0.5em);" />
+</colgroup>
+<thead>
+<tr>
+<th colspan="2" class="title">C:\Users\bike1\FRC\2025\YALLtest\src\main\java\limelight\structures\LimelightData.java</th>
+<th colspan="2" class="title">C:\Users\bike1\FRC\2025\YALL-main\yall\java\limelight\structures\LimelightData.java</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">package</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">package</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">static</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">.</span><span class="sf3b2">LimelightUtils</span><span class="sf11b2">.</span><span class="sf3b2">ext<wbr>ractArrayEntry</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">static</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">.</span><span class="sf3b2">LimelightUtils</span><span class="sf11b2">.</span><span class="sf3b2">ext<wbr>ractArrayEntry</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">static</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">.</span><span class="sf3b2">LimelightUtils</span><span class="sf11b2">.</span><span class="sf3b2">toP<wbr>ose3D</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">static</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">structures</span><span class="sf11b2">.</span><span class="sf3b2">LimelightUtils</span><span class="sf11b2">.</span><span class="sf3b2">toP<wbr>ose3D</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d1" href="#d1">.</a></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">import</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">com</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; ">fasterxml</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; ">jackson</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; ">annotation</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; ">JsonPr<wbr>operty</span><span style="color: #000000; background-color: #efcb05; ">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">import</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">com</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; ">fasterxml</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; ">jackson</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; ">core</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; ">JsonProcessi<wbr>ngException</span><span style="color: #000000; background-color: #efcb05; ">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">com</span><span class="sf11b2">.</span><span class="sf3b2">fasterxml</span><span class="sf11b2">.</span><span class="sf3b2">jackson</span><span class="sf11b2">.</span><span class="sf3b2">databind</span><span class="sf11b2">.</span><span class="sf3b2">Deserial<wbr>izationFeature</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">com</span><span class="sf11b2">.</span><span class="sf3b2">fasterxml</span><span class="sf11b2">.</span><span class="sf3b2">jackson</span><span class="sf11b2">.</span><span class="sf3b2">databind</span><span class="sf11b2">.</span><span class="sf3b2">Deserial<wbr>izationFeature</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">com</span><span class="sf11b2">.</span><span class="sf3b2">fasterxml</span><span class="sf11b2">.</span><span class="sf3b2">jackson</span><span class="sf11b2">.</span><span class="sf3b2">databind</span><span class="sf11b2">.</span><span class="sf3b2">ObjectMa<wbr>pper</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">com</span><span class="sf11b2">.</span><span class="sf3b2">fasterxml</span><span class="sf11b2">.</span><span class="sf3b2">jackson</span><span class="sf11b2">.</span><span class="sf3b2">databind</span><span class="sf11b2">.</span><span class="sf3b2">ObjectMa<wbr>pper</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">math</span><span class="sf11b2">.</span><span class="sf3b2">geometry</span><span class="sf11b2">.</span><span class="sf3b2">Pose3d</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">math</span><span class="sf11b2">.</span><span class="sf3b2">geometry</span><span class="sf11b2">.</span><span class="sf3b2">Pose3d</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">DoubleArray<wbr>Entry</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">DoubleArray<wbr>Entry</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">NetworkTabl<wbr>e</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">NetworkTabl<wbr>e</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">NetworkTabl<wbr>eEntry</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">NetworkTabl<wbr>eEntry</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">StringArray<wbr>Entry</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">networktables</span><span class="sf11b2">.</span><span class="sf3b2">StringArray<wbr>Entry</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">wpilibj</span><span class="sf11b2">.</span><span class="sf3b2">DriverStation</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">wpilibj</span><span class="sf11b2">.</span><span class="sf3b2">DriverStation</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">wpilibj</span><span class="sf11b2">.</span><span class="sf3b2">RobotBase</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">edu</span><span class="sf11b2">.</span><span class="sf3b2">wpi</span><span class="sf11b2">.</span><span class="sf3b2">first</span><span class="sf11b2">.</span><span class="sf3b2">wpilibj</span><span class="sf11b2">.</span><span class="sf3b2">RobotBase</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">java</span><span class="sf11b2">.</span><span class="sf3b2">util</span><span class="sf11b2">.</span><span class="sf3b2">Optional</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">java</span><span class="sf11b2">.</span><span class="sf3b2">util</span><span class="sf11b2">.</span><span class="sf3b2">Optional</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">Limelight</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">Limelight</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">results</span><span class="sf11b2">.</span><span class="sf3b2">RawDetection</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">results</span><span class="sf11b2">.</span><span class="sf3b2">RawDetection</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">results</span><span class="sf11b2">.</span><span class="sf3b2">RawFiducial</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">import</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf3b2">results</span><span class="sf11b2">.</span><span class="sf3b2">RawFiducial</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp;* Data retrieval class for {@link Limelight}</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp;* Data retrieval class for {@link Limelight}</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">class</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightData</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">class</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">LimelightData</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">{</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">{</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Target data from limelight.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Target data from limelight.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">LimelightTargetData</span><span class="sf11b2">&nbsp; &nbsp;</span><span class="sf3b2">targetData</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">LimelightTargetData</span><span class="sf11b2">&nbsp; &nbsp;</span><span class="sf3b2">targetData</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Pipeline data from limelight.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Pipeline data from limelight.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">LimelightPipelineData</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">pipelineData</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp; </span><span class="sf3b2">LimelightPipelineData</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">pipelineData</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* {@link NetworkTable} for the {@link Limelight}</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* {@link NetworkTable} for the {@link Limelight}</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTable</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">limelightTable</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTable</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">limelightTable</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* {@link Limelight} to fetch data for.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* {@link Limelight} to fetch data for.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">Limelight</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">Limelight</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="sf3b2">limelight</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* The limelight.results {@link LimelightResults} JSON data</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* The limelight.results {@link LimelightResults} JSON data</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp;</span><span class="sf3b2">results</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp;</span><span class="sf3b2">results</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Raw AprilTag detection from NetworkTables.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Raw AprilTag detection from NetworkTables.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp;</span><span class="sf3b2">rawfiducials</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp;</span><span class="sf3b2">rawfiducials</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Raw Neural Detector limelight.results from NetworkTables.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Raw Neural Detector limelight.results from NetworkTables.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp;</span><span class="sf3b2">rawDetections</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp;</span><span class="sf3b2">rawDetections</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Neural Clasifier result class name.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Neural Clasifier result class name.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp;</span><span class="sf3b2">classifierClass</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp;</span><span class="sf3b2">classifierClass</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Primary neural detect result class name.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Primary neural detect result class name.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp;</span><span class="sf3b2">detectorClass</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">NetworkTableEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp;</span><span class="sf3b2">detectorClass</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* {@link Pose3d} object representing the camera's position and orientation relative to the robot.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* {@link Pose3d} object representing the camera's position and orientation relative to the robot.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">camera2RobotPose3d</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">camera2RobotPose3d</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Barcodes read by the {@link Limelight}.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Barcodes read by the {@link Limelight}.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">StringArrayEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">barcodeData</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">StringArrayEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">barcodeData</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Custom Python script set data for {@link Limelight}.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Custom Python script set data for {@link Limelight}.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">pythonScriptDataSet</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">pythonScriptDataSet</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Custom Python script output data for {@link Limelight}.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Custom Python script output data for {@link Limelight}.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">pythonScriptData</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">DoubleArrayEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">pythonScriptData</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Object mapper for limelight.results JSON.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Object mapper for limelight.results JSON.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">ObjectMapper</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">resultsObjectMapper</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">private</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">ObjectMapper</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">resultsObjectMapper</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Construct the {@link LimelightData} class to retrieve read-only data.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Construct the {@link LimelightData} class to retrieve read-only data.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param camera {@link Limelight} to use.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param camera {@link Limelight} to use.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">LimelightData</span><span class="sf11b2">(</span><span class="sf3b2">Limelight</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">camera</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">LimelightData</span><span class="sf11b2">(</span><span class="sf3b2">Limelight</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">camera</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">resultsObjectMapper</span><span class="sf11b2">&nbsp;= </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">ObjectMapper</span><span class="sf11b2">().</span><span class="sf8b2">configure</span><span class="sf11b2">(</span><span class="sf3b2">Deserializatio<wbr>nFeature</span><span class="sf11b2">.</span><span class="sf3b2">FAIL_ON_UNKNOWN_PROPERTIES</span><span class="sf11b2">, </span><span class="sf7b2">false</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">resultsObjectMapper</span><span class="sf11b2">&nbsp;= </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">ObjectMapper</span><span class="sf11b2">().</span><span class="sf8b2">configure</span><span class="sf11b2">(</span><span class="sf3b2">Deserializatio<wbr>nFeature</span><span class="sf11b2">.</span><span class="sf3b2">FAIL_ON_UNKNOWN_PROPERTIES</span><span class="sf11b2">, </span><span class="sf7b2">false</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">limelight</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">camera</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">limelight</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">camera</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">limelightTable</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf8b2">getNTTable</span><span class="sf11b2">();</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">limelightTable</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelight</span><span class="sf11b2">.</span><span class="sf8b2">getNTTable</span><span class="sf11b2">();</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">results</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"json"</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">results</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"json"</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">rawfiducials</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"rawfiducials"</span><span class="sf11b2">)<wbr>;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">rawfiducials</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"rawfiducials"</span><span class="sf11b2">)<wbr>;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">rawDetections</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"rawdetections"<wbr></span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">rawDetections</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"rawdetections"<wbr></span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">classifierClass</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"tcclass"</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">classifierClass</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"tcclass"</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">detectorClass</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"tdclass"</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">detectorClass</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf12b2">"tdclass"</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">camera2RobotPose3d</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"cam<wbr>erapose_robotspace"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">camera2RobotPose3d</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"cam<wbr>erapose_robotspace"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">barcodeData</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getStringArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"raw<wbr>barcodes"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">String</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">barcodeData</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getStringArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"raw<wbr>barcodes"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">String</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">pythonScriptData</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"llp<wbr>ython"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">pythonScriptData</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"llp<wbr>ython"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">pythonScriptDataSet</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"llr<wbr>obot"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">pythonScriptDataSet</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">limelightTable</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArrayTopic</span><span class="sf11b2">(</span><span class="sf12b2">"llr<wbr>obot"</span><span class="sf11b2">).</span><span class="sf8b2">getEntry</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">targetData</span><span class="sf11b2">&nbsp;= </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">LimelightTargetData</span><span class="sf11b2">(</span><span class="sf3b2">camera</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">targetData</span><span class="sf11b2">&nbsp;= </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">LimelightTargetData</span><span class="sf11b2">(</span><span class="sf3b2">camera</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">pipelineData</span><span class="sf11b2">&nbsp;= </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">LimelightPipelineData</span><span class="sf11b2">(</span><span class="sf3b2">camera</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">pipelineData</span><span class="sf11b2">&nbsp;= </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">LimelightPipelineData</span><span class="sf11b2">(</span><span class="sf3b2">camera</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Get the output of the custom python script running on the {@link Limelight}.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Get the output of the custom python script running on the {@link Limelight}.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return Output Double Array of the custom python script running on the {@link Limelight}.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return Output Double Array of the custom python script running on the {@link Limelight}.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[] </span><span class="sf8b2">getPythonData</span><span class="sf11b2">()</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[] </span><span class="sf8b2">getPythonData</span><span class="sf11b2">()</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">pythonScriptData</span><span class="sf11b2">.</span><span class="sf8b2">get</span><span class="sf11b2">();</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">pythonScriptData</span><span class="sf11b2">.</span><span class="sf8b2">get</span><span class="sf11b2">();</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the input for the custom python script running on the {@link Limelight}</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Set the input for the custom python script running on the {@link Limelight}</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param outgoingData Double array for custom python script.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @param outgoingData Double array for custom python script.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">void</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">setPythonData</span><span class="sf11b2">(</span><span class="sf7b2">double</span><span class="sf11b2">[] </span><span class="sf3b2">outgoingData</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">void</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">setPythonData</span><span class="sf11b2">(</span><span class="sf7b2">double</span><span class="sf11b2">[] </span><span class="sf3b2">outgoingData</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">pythonScriptDataSet</span><span class="sf11b2">.</span><span class="sf8b2">set</span><span class="sf11b2">(</span><span class="sf3b2">outgoingData</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">pythonScriptDataSet</span><span class="sf11b2">.</span><span class="sf8b2">set</span><span class="sf11b2">(</span><span class="sf3b2">outgoingData</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Barcode data read by the {@link Limelight}.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Barcode data read by the {@link Limelight}.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return Barcode data as a string.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return Barcode data as a string.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">String</span><span class="sf11b2">[] </span><span class="sf8b2">getBarcodeData</span><span class="sf11b2">()</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">String</span><span class="sf11b2">[] </span><span class="sf8b2">getBarcodeData</span><span class="sf11b2">()</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">barcodeData</span><span class="sf11b2">.</span><span class="sf8b2">get</span><span class="sf11b2">();</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">barcodeData</span><span class="sf11b2">.</span><span class="sf8b2">get</span><span class="sf11b2">();</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Gets the camera's 3D pose with respect to the robot's coordinate system.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Gets the camera's 3D pose with respect to the robot's coordinate system.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link Pose3d} object representing the camera's position and orientation relative to the robot</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link Pose3d} object representing the camera's position and orientation relative to the robot</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">Pose3d</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">getCamera2Robot</span><span class="sf11b2">()</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">Pose3d</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">getCamera2Robot</span><span class="sf11b2">()</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">toPose3D</span><span class="sf11b2">(</span><span class="sf3b2">camera2RobotPose3d</span><span class="sf11b2">.</span><span class="sf8b2">get</span><span class="sf11b2">());</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">toPose3D</span><span class="sf11b2">(</span><span class="sf3b2">camera2RobotPose3d</span><span class="sf11b2">.</span><span class="sf8b2">get</span><span class="sf11b2">());</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Gets the current neural classifier result class name.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Gets the current neural classifier result class name.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return Class name string from classifier pipeline</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return Class name string from classifier pipeline</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">String</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">getClassifierClass</span><span class="sf11b2">()</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">String</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">getClassifierClass</span><span class="sf11b2">()</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">classifierClass</span><span class="sf11b2">.</span><span class="sf8b2">getString</span><span class="sf11b2">(</span><span class="sf12b2">""</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">classifierClass</span><span class="sf11b2">.</span><span class="sf8b2">getString</span><span class="sf11b2">(</span><span class="sf12b2">""</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Gets the primary neural detector result class name.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Gets the primary neural detector result class name.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return Class name string from detector pipeline</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return Class name string from detector pipeline</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">String</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">getDetectorClass</span><span class="sf11b2">()</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">String</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">getDetectorClass</span><span class="sf11b2">()</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">detectorClass</span><span class="sf11b2">.</span><span class="sf8b2">getString</span><span class="sf11b2">(</span><span class="sf12b2">""</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">detectorClass</span><span class="sf11b2">.</span><span class="sf8b2">getString</span><span class="sf11b2">(</span><span class="sf12b2">""</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d2" href="#d2">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* Get {@link LimelightResults} from NetworkTables</span><span class="sf17b18">.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* Get {@link LimelightResults} from NetworkTables</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;</span><span class="sf17b18">*</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">&lt;p&gt;</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;</span><span class="sf17b18">*</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">Exists</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">only</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">if</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">LL</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">GUI</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">option</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">"Output</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">&amp;</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">Crosshair</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">-</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">Send</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">JSON</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">over</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">NT?"</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">is</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">Yes</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightResults} if it exists.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return {@link LimelightResults} if it exists.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">Optional</span><span class="sf11b2">&lt;</span><span class="sf3b2">LimelightResults</span><span class="sf11b2">&gt; </span><span class="sf8b2">getResults</span><span class="sf11b2">()</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">Optional</span><span class="sf11b2">&lt;</span><span class="sf3b2">LimelightResults</span><span class="sf11b2">&gt; </span><span class="sf8b2">getResults</span><span class="sf11b2">()</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">try</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">try</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d3" href="#d3">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; &nbsp; </span><span class="sf17b16">var</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">JSONresult</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;= </span><span style="color: #000000; background-color: #efcb05; ">results</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; ">getString</span><span style="color: #000000; background-color: #efcb05; ">(</span><span style="color: #000000; background-color: #efcb05; ">""</span><span style="color: #000000; background-color: #efcb05; ">)</span><span class="sf17b18">;</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; &nbsp; </span><span class="sf17b16">LimelightResults</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">data</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;= </span><span class="sf17b18">resultsObjectMapper.readValue(</span><span style="color: #000000; background-color: #efcb05; ">results</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; ">g<wbr>etString</span><span style="color: #000000; background-color: #efcb05; ">(</span><span style="color: #000000; background-color: #efcb05; ">""</span><span style="color: #000000; background-color: #efcb05; ">)</span><span style="color: #000000; background-color: #efcb05; ">, </span><span style="color: #000000; background-color: #efcb05; ">Results</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">class</span><span style="color: #000000; background-color: #efcb05; ">)</span><span class="sf17b18">.results</span><span style="color: #000000; background-color: #efcb05; ">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; &nbsp; </span><span class="sf17b18">LimelightResults</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">data</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">=</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">resultsObjectMapper.readValue(JSONresul<wbr>t</span><span style="color: #000000; background-color: #efcb05; ">, </span><span class="sf17b18">Limelight</span><span style="color: #000000; background-color: #efcb05; ">Results</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">class</span><span style="color: #000000; background-color: #efcb05; ">)</span><span style="color: #000000; background-color: #efcb05; ">;</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">Optional</span><span class="sf11b2">.</span><span class="sf8b2">of</span><span class="sf11b2">(</span><span class="sf3b2">data</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">Optional</span><span class="sf11b2">.</span><span class="sf8b2">of</span><span class="sf11b2">(</span><span class="sf3b2">data</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d4" href="#d4">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; } </span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">catch</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;(</span><span style="color: #000000; background-color: #efcb05; ">Exception</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">e</span><span style="color: #000000; background-color: #efcb05; ">) </span><span class="sf17b18">//</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">catch</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">all</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">the</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">errors</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">-</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">multiple</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">kinds</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">are</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">possible</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; } </span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">catch</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;(</span><span class="sf17b18">JsonProcessing</span><span style="color: #000000; background-color: #efcb05; ">Exception</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">e</span><span style="color: #000000; background-color: #efcb05; ">)</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; { </span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">if</span><span class="sf11b2">&nbsp;(</span><span class="sf3b2">RobotBase</span><span class="sf11b2">.</span><span class="sf8b2">isSimulation</span><span class="sf11b2">())</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">if</span><span class="sf11b2">&nbsp;(</span><span class="sf3b2">RobotBase</span><span class="sf11b2">.</span><span class="sf8b2">isSimulation</span><span class="sf11b2">())</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf9b2">// TODO: Put sim warning here.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf9b2">// TODO: Put sim warning here.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">else</span><span class="sf11b2">&nbsp;{</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">else</span><span class="sf11b2">&nbsp;{</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d5" href="#d5">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #000000; background-color: #efcb05; ">System</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; ">out</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; ">println</span><span style="color: #000000; background-color: #efcb05; ">(</span><span style="color: #000000; background-color: #efcb05; ">"lljson error: "</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;+ </span><span style="color: #000000; background-color: #efcb05; ">e</span><span style="color: #000000; background-color: #efcb05; ">.</span><span style="color: #000000; background-color: #efcb05; ">getMessage</span><span style="color: #000000; background-color: #efcb05; ">());</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">DriverStation</span><span class="sf11b2">.</span><span class="sf8b2">reportError</span><span class="sf11b2">(</span><span class="sf12b2">"lljson error: "</span><span class="sf11b2">&nbsp;+ </span><span class="sf3b2">e</span><span class="sf11b2">.</span><span class="sf8b2">getMessage</span><span class="sf11b2">(), </span><span class="sf7b2">true</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">DriverStation</span><span class="sf11b2">.</span><span class="sf8b2">reportError</span><span class="sf11b2">(</span><span class="sf12b2">"lljson error: "</span><span class="sf11b2">&nbsp;+ </span><span class="sf3b2">e</span><span class="sf11b2">.</span><span class="sf8b2">getMessage</span><span class="sf11b2">(), </span><span class="sf7b2">true</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">Optional</span><span class="sf11b2">.</span><span class="sf8b2">empty</span><span class="sf11b2">();</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">Optional</span><span class="sf11b2">.</span><span class="sf8b2">empty</span><span class="sf11b2">();</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Gets the latest raw fiducial/AprilTag detection limelight.results from NetworkTables.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Gets the latest raw fiducial/AprilTag detection limelight.results from NetworkTables.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return Array of RawFiducial objects containing detection details</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return Array of RawFiducial objects containing detection details</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">RawFiducial</span><span class="sf11b2">[] </span><span class="sf8b2">getRawFiducials</span><span class="sf11b2">()</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">RawFiducial</span><span class="sf11b2">[] </span><span class="sf8b2">getRawFiducials</span><span class="sf11b2">()</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">var</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">rawfiducials</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArray</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">var</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">rawfiducials</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArray</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp;= </span><span class="sf10b2">7</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp;= </span><span class="sf10b2">7</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">if</span><span class="sf11b2">&nbsp;(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">.</span><span class="sf3b2">length</span><span class="sf11b2">&nbsp;% </span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">&nbsp;!= </span><span class="sf10b2">0</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">if</span><span class="sf11b2">&nbsp;(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">.</span><span class="sf3b2">length</span><span class="sf11b2">&nbsp;% </span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">&nbsp;!= </span><span class="sf10b2">0</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">RawFiducial</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">];</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">RawFiducial</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">];</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="sf3b2">numFiducials</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">.</span><span class="sf3b2">length</span><span class="sf11b2">&nbsp;/ </span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="sf3b2">numFiducials</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">.</span><span class="sf3b2">length</span><span class="sf11b2">&nbsp;/ </span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">RawFiducial</span><span class="sf11b2">[] </span><span class="sf3b2">rawFiducials</span><span class="sf11b2">&nbsp;= </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">RawFiducial</span><span class="sf11b2">[</span><span class="sf3b2">numFiducials</span><span class="sf11b2">];</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">RawFiducial</span><span class="sf11b2">[] </span><span class="sf3b2">rawFiducials</span><span class="sf11b2">&nbsp;= </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">RawFiducial</span><span class="sf11b2">[</span><span class="sf3b2">numFiducials</span><span class="sf11b2">];</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">for</span><span class="sf11b2">&nbsp;(</span><span class="sf7b2">int</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">i</span><span class="sf11b2">&nbsp;= </span><span class="sf10b2">0</span><span class="sf11b2">; </span><span class="sf3b2">i</span><span class="sf11b2">&nbsp;&lt; </span><span class="sf3b2">numFiducials</span><span class="sf11b2">; </span><span class="sf3b2">i</span><span class="sf11b2">++)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">for</span><span class="sf11b2">&nbsp;(</span><span class="sf7b2">int</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">i</span><span class="sf11b2">&nbsp;= </span><span class="sf10b2">0</span><span class="sf11b2">; </span><span class="sf3b2">i</span><span class="sf11b2">&nbsp;&lt; </span><span class="sf3b2">numFiducials</span><span class="sf11b2">; </span><span class="sf3b2">i</span><span class="sf11b2">++)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp; &nbsp; = </span><span class="sf3b2">i</span><span class="sf11b2">&nbsp;* </span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp; &nbsp; = </span><span class="sf3b2">i</span><span class="sf11b2">&nbsp;* </span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">id</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= (</span><span class="sf7b2">int</span><span class="sf11b2">) </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">id</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= (</span><span class="sf7b2">int</span><span class="sf11b2">) </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">txnc</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">1</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">txnc</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">1</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">tync</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">2</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">tync</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">2</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">ta</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">3</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">ta</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">3</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">distToCamera</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">4</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">distToCamera</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">4</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">distToRobot</span><span class="sf11b2">&nbsp; = </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">5</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">distToRobot</span><span class="sf11b2">&nbsp; = </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">5</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">ambiguity</span><span class="sf11b2">&nbsp; &nbsp; = </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">6</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">ambiguity</span><span class="sf11b2">&nbsp; &nbsp; = </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawFiducialArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">6</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">rawFiducials</span><span class="sf11b2">[</span><span class="sf3b2">i</span><span class="sf11b2">] = </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">RawFiducial</span><span class="sf11b2">(</span><span class="sf3b2">id</span><span class="sf11b2">, </span><span class="sf3b2">txnc</span><span class="sf11b2">, </span><span class="sf3b2">tync</span><span class="sf11b2">, </span><span class="sf3b2">ta</span><span class="sf11b2">, </span><span class="sf3b2">distToCamera</span><span class="sf11b2">, </span><span class="sf3b2">distToRobot</span><span class="sf11b2">, </span><span class="sf3b2">ambiguity</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">rawFiducials</span><span class="sf11b2">[</span><span class="sf3b2">i</span><span class="sf11b2">] = </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">RawFiducial</span><span class="sf11b2">(</span><span class="sf3b2">id</span><span class="sf11b2">, </span><span class="sf3b2">txnc</span><span class="sf11b2">, </span><span class="sf3b2">tync</span><span class="sf11b2">, </span><span class="sf3b2">ta</span><span class="sf11b2">, </span><span class="sf3b2">distToCamera</span><span class="sf11b2">, </span><span class="sf3b2">distToRobot</span><span class="sf11b2">, </span><span class="sf3b2">ambiguity</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">rawFiducials</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">rawFiducials</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf9b2">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Gets the latest raw neural detector limelight.results from NetworkTables</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* Gets the latest raw neural detector limelight.results from NetworkTables</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return Array of RawDetection objects containing detection details</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;* @return Array of RawDetection objects containing detection details</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf9b2">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">RawDetection</span><span class="sf11b2">[] </span><span class="sf8b2">getRawDetections</span><span class="sf11b2">()</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; </span><span class="sf7b2">public</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">RawDetection</span><span class="sf11b2">[] </span><span class="sf8b2">getRawDetections</span><span class="sf11b2">()</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">var</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">rawDetections</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArray</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">var</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">rawDetections</span><span class="sf11b2">.</span><span class="sf8b2">getDoubleArray</span><span class="sf11b2">(</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">double</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">]);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; = </span><span class="sf10b2">12</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; = </span><span class="sf10b2">12</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">if</span><span class="sf11b2">&nbsp;(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">.</span><span class="sf3b2">length</span><span class="sf11b2">&nbsp;% </span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">&nbsp;!= </span><span class="sf10b2">0</span><span class="sf11b2">)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">if</span><span class="sf11b2">&nbsp;(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">.</span><span class="sf3b2">length</span><span class="sf11b2">&nbsp;% </span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">&nbsp;!= </span><span class="sf10b2">0</span><span class="sf11b2">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">RawDetection</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">];</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">RawDetection</span><span class="sf11b2">[</span><span class="sf10b2">0</span><span class="sf11b2">];</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">numDetections</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">.</span><span class="sf3b2">length</span><span class="sf11b2">&nbsp;/ </span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">numDetections</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">.</span><span class="sf3b2">length</span><span class="sf11b2">&nbsp;/ </span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">RawDetection</span><span class="sf11b2">[] </span><span class="sf3b2">rawDetections</span><span class="sf11b2">&nbsp;= </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">RawDetection</span><span class="sf11b2">[</span><span class="sf3b2">numDetections</span><span class="sf11b2">];</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">RawDetection</span><span class="sf11b2">[] </span><span class="sf3b2">rawDetections</span><span class="sf11b2">&nbsp;= </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">RawDetection</span><span class="sf11b2">[</span><span class="sf3b2">numDetections</span><span class="sf11b2">];</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">for</span><span class="sf11b2">&nbsp;(</span><span class="sf7b2">int</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">i</span><span class="sf11b2">&nbsp;= </span><span class="sf10b2">0</span><span class="sf11b2">; </span><span class="sf3b2">i</span><span class="sf11b2">&nbsp;&lt; </span><span class="sf3b2">numDetections</span><span class="sf11b2">; </span><span class="sf3b2">i</span><span class="sf11b2">++)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">for</span><span class="sf11b2">&nbsp;(</span><span class="sf7b2">int</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">i</span><span class="sf11b2">&nbsp;= </span><span class="sf10b2">0</span><span class="sf11b2">; </span><span class="sf3b2">i</span><span class="sf11b2">&nbsp;&lt; </span><span class="sf3b2">numDetections</span><span class="sf11b2">; </span><span class="sf3b2">i</span><span class="sf11b2">++)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; {</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">i</span><span class="sf11b2">&nbsp;* </span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">; </span><span class="sf9b2">// Starting index for this detection's data</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;= </span><span class="sf3b2">i</span><span class="sf11b2">&nbsp;* </span><span class="sf3b2">valsPerEntry</span><span class="sf11b2">; </span><span class="sf9b2">// Starting index for this detection's data</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">classId</span><span class="sf11b2">&nbsp; &nbsp;= (</span><span class="sf7b2">int</span><span class="sf11b2">) </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">int</span><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf3b2">classId</span><span class="sf11b2">&nbsp; &nbsp;= (</span><span class="sf7b2">int</span><span class="sf11b2">) </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">txnc</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; = </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">1</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">txnc</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; = </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">1</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">tync</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; = </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">2</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">tync</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; = </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">2</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">ta</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; = </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">3</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">ta</span><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; = </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">3</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner0_X</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">4</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner0_X</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">4</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner0_Y</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">5</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner0_Y</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">5</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner1_X</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">6</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner1_X</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">6</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner1_Y</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">7</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner1_Y</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">7</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner2_X</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">8</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner2_X</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">8</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner2_Y</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">9</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner2_Y</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">9</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner3_X</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">10</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner3_X</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">10</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner3_Y</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">11</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf7b2">double</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">corner3_Y</span><span class="sf11b2">&nbsp;= </span><span class="sf8b2">extractArrayEntry</span><span class="sf11b2">(</span><span class="sf3b2">rawDetectionArray</span><span class="sf11b2">, </span><span class="sf3b2">baseIndex</span><span class="sf11b2">&nbsp;+ </span><span class="sf10b2">11</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">rawDetections</span><span class="sf11b2">[</span><span class="sf3b2">i</span><span class="sf11b2">] = </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">RawDetection</span><span class="sf11b2">(</span><span class="sf3b2">classId</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; </span><span class="sf3b2">rawDetections</span><span class="sf11b2">[</span><span class="sf3b2">i</span><span class="sf11b2">] = </span><span class="sf7b2">new</span><span class="sf11b2">&nbsp;</span><span class="sf8b2">RawDetection</span><span class="sf11b2">(</span><span class="sf3b2">classId</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">txnc</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">txnc</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">tync</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">tync</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">ta</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">ta</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner0_X</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner0_X</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner0_Y</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner0_Y</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner1_X</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner1_X</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner1_Y</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner1_Y</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner2_X</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner2_X</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner2_Y</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner2_Y</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner3_X</span><span class="sf11b2">,</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner3_X</span><span class="sf11b2">,</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner3_Y</span><span class="sf11b2">);</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="sf3b2">corner3_Y</span><span class="sf11b2">);</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">rawDetections</span><span class="sf11b2">;</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; &nbsp; </span><span class="sf7b2">return</span><span class="sf11b2">&nbsp;</span><span class="sf3b2">rawDetections</span><span class="sf11b2">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d6" href="#d6">.</a></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; </span><span style="color: #000000; background-color: #efcb05; ">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;* Results Wrapper Class for JSON reading</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; </span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">private</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">class</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">Results</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; </span><span style="color: #000000; background-color: #efcb05; ">/**</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; &nbsp;* "Results" Object for JSON reading.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; &nbsp;*/</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; @</span><span style="color: #000000; background-color: #efcb05; ">JsonProperty</span><span style="color: #000000; background-color: #efcb05; ">(</span><span style="color: #000000; background-color: #efcb05; ">"Results"</span><span style="color: #000000; background-color: #efcb05; ">)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; </span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">public</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">LimelightResults</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">results</span><span style="color: #000000; background-color: #efcb05; ">;</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; </span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">public</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">Results</span><span style="color: #000000; background-color: #efcb05; ">() {</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #000000; background-color: #efcb05; ">results</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;= </span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">new</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">LimelightResults</span><span style="color: #000000; background-color: #efcb05; ">();</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; }</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">}</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf11b2">}</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
