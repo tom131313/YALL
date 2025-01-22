@@ -37,7 +37,16 @@ public class Robot extends TimedRobot {
             )
         );
 
-    var tests = new boolean[]{true, false, false, false, false, false};
+
+// PICK YOUR TESTS TO RUN
+//                            0       1     2       3       4       5  
+    var tests = new boolean[]{false, true, false, false, false, false};
+
+/**
+ * Caution -- test case restrictions:
+ * I have some ".orElseThrow" which crashes the robot on no data. Yes, that's what I wanted to test at the time.
+ * More realistic examples are checking for ".isPresent()".
+ */
 
     if (tests[0])
     {
@@ -50,40 +59,47 @@ public class Robot extends TimedRobot {
 
     if (tests[1])
     {
-        System.out.println(limelight.getLatestResults().orElseThrow()); // tested okay; only one target returned for a pose
+        if (limelight.getLatestResults().isPresent())
+        {
+            System.out.println(limelight.getLatestResults());
+        }
     }
 
     if (tests[2])
     {
-        System.out.println("MT2 pose estimate\n" + limelightPoseEstimatorMT2.getPoseEstimate().orElseThrow()); // tested okay; only one target returned
-        System.out.println("3d pose status (hasData) " + limelightPoseEstimatorMT2.getPoseEstimate().get().hasData);
+        if (limelightPoseEstimatorMT2.getPoseEstimate().isPresent() && limelightPoseEstimatorMT2.getPoseEstimate().get().hasData)
+        {
+            System.out.println("MT2 pose estimate\n" + limelightPoseEstimatorMT2.getPoseEstimate());
+        }
     }
 
     if (tests[3])
     {
-        System.out.println("MT2 alliance pose estimate\n" + limelightPoseEstimatorMT2.getAlliancePoseEstimate().orElseThrow()); // tested okay; only one target returned
+        System.out.println("MT2 alliance pose estimate\n" + limelightPoseEstimatorMT2.getAlliancePoseEstimate().orElseThrow());
     }
 
     if (tests[4])
     {
-        System.out.println("pose estimate\n" + limelightPoseEstimator.getPoseEstimate().orElseThrow()); // tested okay; only one target returned
+        System.out.println("pose estimate\n" + limelightPoseEstimator.getPoseEstimate().orElseThrow());
     }
 
     if (tests[5])
     {
-        System.out.println("alliance pose estimate\n" +limelightPoseEstimator.getAlliancePoseEstimate().orElseThrow()); // tested okay; only one target returned for a pose
+        System.out.println("alliance pose estimate\n" +limelightPoseEstimator.getAlliancePoseEstimate().orElseThrow());
     }
 
   }
 
   @Override
-  public void autonomousInit() {}
+  public void autonomousInit() {limelight.settingsBuilder().withPipelineIndex(0);}
 
   @Override
   public void autonomousPeriodic() {}
 
   @Override
-  public void teleopInit() {limelight.snapshot("RickTestToDelete");}
+  public void teleopInit() {limelight.settingsBuilder().withPipelineIndex(1);
+    // limelight.snapshot("RickTestToDelete"); // couldn't get this to work nor get LL to manage snapshots like it's supposed to
+}
 
   @Override
   public void teleopPeriodic() {}
