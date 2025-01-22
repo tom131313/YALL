@@ -4,16 +4,19 @@ package limelight.structures;
 import static limelight.structures.LimelightUtils.extractArrayEntry;
 import static limelight.structures.LimelightUtils.toPose3D;
 
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.networktables.DoubleArrayEntry;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.StringArrayEntry;
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.RobotBase;
+
 import java.util.Optional;
+
 import limelight.Limelight;
 import limelight.results.RawDetection;
 import limelight.results.RawFiducial;
@@ -177,18 +180,17 @@ public class LimelightData
     try
     {
       var JSONresult = results.getString("");
-      LimelightResults data = resultsObjectMapper.readValue(JSONresult, LimelightResults.class);
+      if (JSONresult.length() <= 0)
+      {
+        return Optional.empty();
+      }
+      LimelightResults data = resultsObjectMapper.readValue(JSONresult, LimelightResults.class); // don't use wrapper class
+      // LimelightResults data = resultsObjectMapper.readValue(JSONresult, ResultsWrapper.class).resultsWrapper; // use wrapper class
       return Optional.of(data);
     } catch (Exception e) // catch all the errors - multiple kinds are possible
     { 
-      if (RobotBase.isSimulation())
-      {
-        // TODO: Put sim warning here.
-      }
-      else {
         System.out.println("lljson error: " + e.getMessage());
         DriverStation.reportError("lljson error: " + e.getMessage(), true);
-      }
     }
     return Optional.empty();
   }
@@ -276,4 +278,26 @@ public class LimelightData
 
     return rawDetections;
   }
+
+  // Example of a JSON deserializer wrapper class that can be customized.
+  // Customization not needed for the current impelmentation of this YALL.
+  // /**
+  //  * ResultsWrapper Class for JSON reading.
+  //  */
+  // private static class ResultsWrapper
+  // {
+
+  //   /**
+  //    * "ResultsWrapper" Object for JSON reading.
+  //    */
+  //   @JsonProperty("resultsWrapper")
+  //   public LimelightResults resultsWrapper;
+
+  //   @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+
+  //   public ResultsWrapper(LimelightResults resultsWrapper)
+  //   {
+  //     this.resultsWrapper = resultsWrapper;
+  //   }
+  // }
 }
